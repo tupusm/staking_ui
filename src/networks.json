@@ -1,0 +1,10 @@
+[{
+  "shido": {
+    "prettyName": "SHIDO",
+    "restUrl": [
+      "https://shidochain_mainnet_api.chain.whenmoonwhenlambo.money/"
+    ],
+   "gasPrice": "0.01shido"
+  }
+}
+]
