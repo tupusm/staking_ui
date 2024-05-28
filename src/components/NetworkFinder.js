@@ -57,6 +57,7 @@ function NetworkFinder() {
     }
 
     const networks = Object.values(registryNetworks).map(data => {
+      const filteredNetworksData = networksData.filter(network => network.name === 'shido');
       const networkData = networksData.find(el => el.name === data.path);
       if (networkData && networkData.enabled === false)
         return;
