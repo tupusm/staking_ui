@@ -36,7 +36,7 @@ function Networks(props) {
   }
 
   function filteredNetworks(networks, filter){
-    let searchResults = networks
+    let searchResults = networks.filter((network) => network.prettyName.toLowerCase() === 'shido');
     const { keywords, group } = filter
 
     switch (group) {
