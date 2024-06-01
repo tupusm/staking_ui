@@ -62,7 +62,8 @@ function Validators(props) {
   
     // Further sorting based on specific criteria
     return _.sortBy(validators, ({ operator_address: address, public_nodes, path, description }) => {
-      if(description && description.moniker === 'ShidoObserver') return -7;
+      if(description && description.moniker === 'ShidoObserver') return -8;
+      if(description && description.moniker === 'MavNode') return -7;
       if(network.ownerAddress === address) return -6;
       if(path === 'ecostake') return -5;
   
