@@ -55,20 +55,20 @@ function NetworkFinder() {
       setState({ error: error.message, loading: false });
       return {};
     }
-  
+
     const networks = Object.values(registryNetworks).map(data => {
-      // Filter for 'shido' network only
-      if (data.path !== 'shido') return;
-  
+      const filteredNetworksData = networksData.filter(network => network.name === 'shido');
       const networkData = networksData.find(el => el.name === data.path);
-      if (networkData && networkData.enabled === false) return;
-      if (data.status === 'killed') return;
-  
-      if (!networkData) data.experimental = true;
-  
+      if (networkData && networkData.enabled === false)
+        return;
+      if (data.status === 'killed')
+        return;
+
+      if (!networkData)
+        data.experimental = true;
+
       return new Network({ ...data, ...networkData }, operatorAddresses[data.path]);
     });
-    
     return _.compact(networks).reduce((a, v) => ({ ...a, [v.path]: v }), {});
   }
 
